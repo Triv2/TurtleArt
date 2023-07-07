@@ -33,7 +33,6 @@ max_width=250
 
 t.colormode(255)
 timmy= Turtle()
-timmy.penup()
 timmy.hideturtle()
 timmy.shape("circle")
 timmy.speed("fastest")
@@ -46,8 +45,9 @@ def random_color():
   return color
 
 def draw_grid(max_height,max_width):
-  for y in range(max_height,-max_height,-50):
-    for x in range(-max_width,max_width,50):
+  for y in range(max_height,-max_height,-45):
+    for x in range(-max_width,max_width,45):
+      timmy.penup()
       timmy.setx(x)
       timmy.sety(y)
       timmy.pencolor(random_color())
@@ -55,7 +55,7 @@ def draw_grid(max_height,max_width):
       timmy.stamp()
       
 def draw_spirograph():
-  for x in range(-100,100,2):
+  for x in range(-max_height,max_width,10):
     timmy.pencolor(random_color())
     timmy.penup()
     timmy.setheading(x*3.14)
@@ -64,5 +64,6 @@ def draw_spirograph():
   
 
 draw_spirograph()
-# draw_grid(max_height,max_width)     
+draw_grid(max_height,max_width)     
 screen= Screen()
+screen.exitonclick()
