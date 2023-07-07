@@ -2,35 +2,7 @@ from turtle import Turtle, Screen
 import turtle as t
 import random
 
-
-max_height=250
-max_width=250
-
-
-# class Turtle(Turtle):
-#   def __init__(self,shape,color):
-#     self.shape= shape
-#     self.color= color
-    
-# class Grid:
-#   def __init__(self,height,width):
-#     self.height= height
-#     self.width= width
-#   def move(self,turtle,movement,max_height,max_width):
-#     turtle.forward(movement)
-    
-#   def place(self,turtle,max_height,max_width):
-#     for y in range(max_height):
-#       for x in range(max_width):
-#         turtle= Turtle(shape,color,x,y)
-#         turtle.setx(x)
-#         turtle.sety(y)
-#         icons.append(turtle)
-
-# grid =Grid(max_height,max_width)
-# turtle= Turtle(shape,color,0,0)
-# grid.place(turtle,max_height,max_width)
-
+size=250
 t.colormode(255)
 timmy= Turtle()
 timmy.hideturtle()
@@ -44,9 +16,9 @@ def random_color():
   color =(r,g,b)
   return color
 
-def draw_grid(max_height,max_width):
-  for y in range(max_height,-max_height,-45):
-    for x in range(-max_width,max_width,45):
+def draw_grid():
+  for y in range(size,-size,-45):
+    for x in range(-size,size,45):
       timmy.penup()
       timmy.setx(x)
       timmy.sety(y)
@@ -55,7 +27,7 @@ def draw_grid(max_height,max_width):
       timmy.stamp()
       
 def draw_spirograph():
-  for x in range(-max_height,max_width,10):
+  for x in range(-size,size,5):
     timmy.pencolor(random_color())
     timmy.penup()
     timmy.setheading(x*3.14)
@@ -64,6 +36,6 @@ def draw_spirograph():
   
 
 draw_spirograph()
-draw_grid(max_height,max_width)     
+draw_grid()     
 screen= Screen()
 screen.exitonclick()
